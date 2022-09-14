@@ -1,4 +1,4 @@
 package com.jobjcaraccident.model;
 
-public class AutoInspector {
+public class Supervisor {
 }
