@@ -1,7 +1,7 @@
-package com.jobjcaraccident.controller;
+package com.accident.controller;
 
-import com.jobjcaraccident.model.Accident;
-import com.jobjcaraccident.service.AccidentService;
+import com.accident.model.Accident;
+import com.accident.service.AccidentServiceData;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -17,22 +17,22 @@ import java.util.Optional;
 @Controller
 public class IndexController {
 
-    private final AccidentService accidentService;
+    private final AccidentServiceData accidentService;
 
-    public IndexController(AccidentService accidentService) {
+    public IndexController(AccidentServiceData accidentService) {
         this.accidentService = accidentService;
     }
 
     @GetMapping("/index")
     public String index(Model model) {
-        model.addAttribute("accidents", accidentService.findAll());
+        model.addAttribute("accidents", accidentService.getAll());
         return "/index";
     }
 
     @GetMapping("/photoAds/{accidentById}")
     public ResponseEntity<Resource> download(
             @PathVariable("accidentById") Integer accidentId) {
-        Optional<Accident> accident = accidentService.findByID(accidentId);
+        Optional<Accident> accident = accidentService.findById(accidentId);
         return ResponseEntity.ok()
                 .headers(new HttpHeaders())
                 .contentLength(accident.get().getPhoto().length)

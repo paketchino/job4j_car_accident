@@ -1,17 +1,17 @@
-package com.jobjcaraccident.service;
+package com.accident.service;
 
-import com.jobjcaraccident.model.Accident;
-import com.jobjcaraccident.persistance.AccidentMem;
+import com.accident.model.Accident;
+import com.accident.repository.AccidentMem;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class AccidentService {
+public class AccidentServiceMem {
     private final AccidentMem accidentMem;
 
-    public AccidentService(AccidentMem accidentMem) {
+    public AccidentServiceMem(AccidentMem accidentMem) {
         this.accidentMem = accidentMem;
     }
 
@@ -25,5 +25,9 @@ public class AccidentService {
 
     public Optional<Accident> findByID(int id) {
         return accidentMem.findById(id);
+    }
+
+    public void update(Accident accident) {
+        accidentMem.update(accident);
     }
 }
