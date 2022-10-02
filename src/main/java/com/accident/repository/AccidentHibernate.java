@@ -1,6 +1,8 @@
 package com.accident.repository;
 
 import com.accident.model.Accident;
+import com.accident.model.AccidentType;
+import com.accident.model.Rule;
 import com.accident.util.DefaultMethod;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
@@ -44,5 +46,38 @@ public class AccidentHibernate {
                         .setParameter(accident.getNumberCar(), "aNumber")
                         .setParameter(accident.getId(), "aId")
                         .executeUpdate() > 0, sessionFactory);
+    }
+
+    public AccidentType saveAccType(AccidentType accidentType) {
+        return (AccidentType) DefaultMethod.tx(session ->
+                session.save(accidentType), sessionFactory);
+    }
+
+    public Rule saveRule(Rule rule) {
+        return (Rule) DefaultMethod.tx(session ->
+                session.save(rule), sessionFactory);
+    }
+
+    public List<AccidentType> findAllAccidentType() {
+        return DefaultMethod.tx(session ->
+                session.createQuery("from AccidentType").list(), sessionFactory);
+    }
+
+    public List<Rule> findAllRule() {
+        return DefaultMethod.tx(session ->
+                session.createQuery("from Rule").list(), sessionFactory);
+    }
+
+    public Optional<AccidentType> findByIdAccidentType(int id) {
+        return DefaultMethod.tx(session ->
+                session.createQuery("from AccidentType where id =:ATId")
+                .setParameter("ATId", id).uniqueResultOptional(), sessionFactory);
+    }
+
+    public Optional<Rule> findByIdRule(int id) {
+        return DefaultMethod.tx(session ->
+                session.createQuery("from Rule where id = :RId")
+                        .setParameter("RId", id).uniqueResultOptional(), sessionFactory);
+
     }
 }

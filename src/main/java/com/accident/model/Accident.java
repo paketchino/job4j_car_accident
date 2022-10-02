@@ -25,8 +25,12 @@ public class Accident {
     @OneToMany
     private Set<Rule> rules;
 
-    @ManyToOne
-    private AccidentType accidentType;
+    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @JoinTable(name = "accidents_accidentTypes", joinColumns = {
+            @JoinColumn(name = "accident_id", nullable = false, updatable = false)},
+    inverseJoinColumns = {
+            @JoinColumn(name = "accidentType_id", nullable = false, updatable = false)})
+    private Set<AccidentType> accidentType;
 
     private String address;
 
