@@ -4,7 +4,6 @@ import com.accident.model.Accident;
 import com.accident.model.Rule;
 import com.accident.model.AccidentType;
 import com.accident.repository.AccidentTypeRepository;
-import com.accident.repository.RuleRepository;
 import com.accident.service.AccidentServiceData;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

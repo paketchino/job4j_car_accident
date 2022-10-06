@@ -1,0 +1,1 @@
+<a href="<c:url value='/reg'/>">Регистрация</a>

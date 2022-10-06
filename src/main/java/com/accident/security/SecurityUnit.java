@@ -1,4 +1,4 @@
-package com.accident.util;
+package com.accident.security;
 
 import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
 

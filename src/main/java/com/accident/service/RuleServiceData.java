@@ -1,7 +1,6 @@
 package com.accident.service;
 
 import com.accident.model.Rule;
-import com.accident.repository.RuleRepository;
 
 import java.util.ArrayList;
 import java.util.List;
