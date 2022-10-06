@@ -1,9 +1,11 @@
 package com.accident.controller;
 
 import com.accident.model.Accident;
+import com.accident.model.Authority;
 import com.accident.model.Rule;
 import com.accident.model.AccidentType;
 import com.accident.repository.AccidentTypeRepository;
+import com.accident.repository.AuthorityRepository;
 import com.accident.service.AccidentServiceData;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,14 +25,14 @@ import java.util.Set;
 public class AccidentController {
     private final AccidentServiceData accidentService;
     private final AccidentTypeRepository accidentTypeRepository;
-    private final RuleRepository ruleRepository;
+    private final AuthorityRepository authorityRepository;
 
     public AccidentController(AccidentServiceData accidentService,
                               AccidentTypeRepository accidentTypeRepository,
-                              RuleRepository ruleRepository) {
+                              AuthorityRepository authorityRepository) {
         this.accidentService = accidentService;
         this.accidentTypeRepository = accidentTypeRepository;
-        this.ruleRepository = ruleRepository;
+        this.authorityRepository = authorityRepository;
     }
 
     @GetMapping("/createAccident")
@@ -80,14 +82,14 @@ public class AccidentController {
         return "redirect:/index";
     }
 
-    @GetMapping("/createRule")
-    public String createRule() {
+    @GetMapping("/createAuthority")
+    public String createAuthority() {
         return "addRule";
     }
 
-    @PostMapping("/saveRule")
-    public String saveRule(@ModelAttribute Rule rule) {
-        ruleRepository.save(rule);
+    @PostMapping("/saveAuthority")
+    public String saveAuthority(@ModelAttribute Authority authority) {
+        authorityRepository.save(authority);
         return "redirect:/index";
     }
 }
