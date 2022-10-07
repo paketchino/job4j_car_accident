@@ -23,21 +23,22 @@ public class AccidentMem {
     }
 
     public void add(Accident accident) {
+        LOGGER.info("Добавление accident");
         storage.put(accident.getId(), accident);
     }
 
     public List<Accident> findAll() {
-        return storage.values().stream().collect(Collectors.toList());
+        LOGGER.info("Поиск всех accident");
+        return new ArrayList<>(storage.values());
     }
 
-    public Optional<Accident> findById(int id) {
-       return storage.entrySet()
-               .stream()
-               .filter(entry -> entry.getKey().equals(id))
-               .map(Map.Entry::getValue).findFirst();
+    public Accident findById(int id) {
+        LOGGER.info("Поиск по id");
+        return storage.get(id);
     }
 
     public void update(Accident accident) {
+        LOGGER.info("Обновление accident");
         for (Map.Entry<Integer, Accident> entry : storage.entrySet()) {
                  if (entry.getKey().equals(accident.getId())) {
                       storage.put(accident.getId(), accident);

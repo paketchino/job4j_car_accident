@@ -4,7 +4,6 @@ import com.accident.model.Authority;
 import com.accident.repository.AuthorityRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,11 +21,7 @@ public class AuthotityServiceData {
     }
 
     public List<Authority> getAll() {
-        var result = new ArrayList<Authority>();
-        for (var authority : authorityRepository.findAll()) {
-            result.add(authority);
-        }
-        return result;
+        return authorityRepository.getAll();
     }
 
     public Optional<Authority> findById(int id) {
