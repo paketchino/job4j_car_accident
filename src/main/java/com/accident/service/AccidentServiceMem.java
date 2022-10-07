@@ -23,7 +23,7 @@ public class AccidentServiceMem {
         return accidentMem.findAll();
     }
 
-    public Optional<Accident> findByID(int id) {
+    public Accident findById(int id) {
         return accidentMem.findById(id);
     }
 
