@@ -21,11 +21,7 @@ public class AccidentTypeServiceData {
     }
 
     public List<AccidentType> getAll() {
-        var result = new ArrayList<AccidentType>();
-        for (var accidentType : accidentTypeRepository.findAll()) {
-            result.add(accidentType);
-        }
-        return result;
+        return (List<AccidentType>) accidentTypeRepository.findAll();
     }
 
     public Optional<AccidentType> findById(int id) {
