@@ -66,7 +66,13 @@ public class AccidentController {
 
     @PostMapping("/changeAccident")
     public String changeAccident(@ModelAttribute Accident accident,
-                                 @RequestParam("id") int id, Model model) {
+                                 @RequestParam("id") int id,
+                                 @RequestParam("file") MultipartFile file,
+                                 Model model,
+                                 HttpServletRequest req)
+            throws Exception {
+        accident.setPhoto(file.getBytes());
+        String[] ids = req.getParameterValues("rIds");
         model.addAttribute("accident", accidentService.findById(id));
         return "redirect:/accident";
     }
