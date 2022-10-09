@@ -35,7 +35,7 @@ public class IndexController {
     @GetMapping("/photoAds/{accidentById}")
     public ResponseEntity<Resource> download(
             @PathVariable("accidentById") Integer accidentId) {
-        Optional<Accident> accident = accidentService.findById(accidentId);
+        Optional<Accident> accident = accidentService.findByIdAccident(accidentId);
         return ResponseEntity.ok()
                 .headers(new HttpHeaders())
                 .contentLength(accident.get().getPhoto().length)

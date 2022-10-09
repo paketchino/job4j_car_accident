@@ -73,7 +73,7 @@ public class AccidentController {
             throws Exception {
         accident.setPhoto(file.getBytes());
         String[] ids = req.getParameterValues("rIds");
-        model.addAttribute("accident", accidentService.findById(id));
+        model.addAttribute("accident", accidentService.findByIdAccident(id));
         return "redirect:/accident";
     }
 
@@ -88,9 +88,31 @@ public class AccidentController {
         return "redirect:/index";
     }
 
+    @GetMapping("/addRule")
+    public String addRule() {
+        return "addRule";
+    }
+
+    @PostMapping("/createRule")
+    public String createRule(@ModelAttribute Rule rule) {
+        accidentService.create(rule);
+        return "redirect:/index";
+    }
+
+    @GetMapping("/updateRule")
+    public String updateRule() {
+        return "updateRule";
+    }
+
+    @PostMapping("/changeRule")
+    public String changeRule(@ModelAttribute Rule rule) {
+        accidentService.update(rule);
+        return "redirect:/index";
+    }
+
     @GetMapping("/createAuthority")
     public String createAuthority() {
-        return "addRule";
+        return "createAuthority";
     }
 
     @PostMapping("/saveAuthority")
