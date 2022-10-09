@@ -7,12 +7,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @Repository
 public class AccidentMem {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(AccidentMem.class);
 
+    private AtomicInteger atomicInteger;
     private HashMap<Integer, Accident> storage = new HashMap<>();
 
     private final SessionFactory sessionFactory;
@@ -23,7 +25,7 @@ public class AccidentMem {
 
     public void add(Accident accident) {
         LOGGER.info("Добавление accident");
-        storage.put(accident.getId(), accident);
+        storage.put(atomicInteger.getAndIncrement(), accident);
     }
 
     public List<Accident> findAll() {
@@ -38,10 +40,6 @@ public class AccidentMem {
 
     public void update(Accident accident) {
         LOGGER.info("Обновление accident");
-        for (Map.Entry<Integer, Accident> entry : storage.entrySet()) {
-                 if (entry.getKey().equals(accident.getId())) {
-                      storage.put(accident.getId(), accident);
-                  }
-              }
+        storage.replace(accident.getId(), accident);
     }
 }
