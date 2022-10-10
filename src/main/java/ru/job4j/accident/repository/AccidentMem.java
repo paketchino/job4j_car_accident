@@ -17,15 +17,10 @@ public class AccidentMem {
     private AtomicInteger atomicInteger;
     private HashMap<Integer, Accident> storage = new HashMap<>();
 
-    private final SessionFactory sessionFactory;
-
-    public AccidentMem(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
-    }
-
     public void add(Accident accident) {
         LOGGER.info("Добавление accident");
-        storage.put(atomicInteger.getAndIncrement(), accident);
+        accident.setId(atomicInteger.getAndIncrement());
+        storage.put(accident.getId(), accident);
     }
 
     public List<Accident> findAll() {
