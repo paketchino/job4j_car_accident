@@ -1,4 +1,4 @@
-package ru.job4j.accident.util;
+package ru.job4j.accident.data;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,7 +14,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
 @Configuration
-@EnableJpaRepositories("com.accident")
+@EnableJpaRepositories("ru.job4j.accident")
 @EnableTransactionManagement
 public class DateConfig {
 
@@ -26,7 +26,7 @@ public class DateConfig {
         LocalContainerEntityManagerFactoryBean factory
                 = new LocalContainerEntityManagerFactoryBean();
         factory.setJpaVendorAdapter(vendorAdapter);
-        factory.setPackagesToScan("com.accident");
+        factory.setPackagesToScan("ru.job4j.accident");
         factory.setDataSource(ds);
         return factory;
     }

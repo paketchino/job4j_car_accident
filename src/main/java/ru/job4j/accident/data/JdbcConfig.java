@@ -1,4 +1,4 @@
-package ru.job4j.accident.util;
+package ru.job4j.accident.data;
 
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.beans.factory.annotation.Value;
