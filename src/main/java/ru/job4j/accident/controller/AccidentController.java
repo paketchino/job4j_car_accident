@@ -79,7 +79,7 @@ public class AccidentController {
 
     @GetMapping("/createAccidentType")
     public String createAccidentType() {
-        return "addAccidentType";
+        return "createAccidentType";
     }
 
     @PostMapping("/saveAccidentType")

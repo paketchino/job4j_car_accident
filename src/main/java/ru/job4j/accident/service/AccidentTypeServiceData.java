@@ -27,4 +27,5 @@ public class AccidentTypeServiceData {
     public Optional<AccidentType> findById(int id) {
         return accidentTypeRepository.findById(id);
     }
+
 }

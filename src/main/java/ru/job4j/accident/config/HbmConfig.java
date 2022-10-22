@@ -1,4 +1,4 @@
-package ru.job4j.accident.data;
+package ru.job4j.accident.config;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Value;
