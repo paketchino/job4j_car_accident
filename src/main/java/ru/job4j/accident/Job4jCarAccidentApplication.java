@@ -7,17 +7,25 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
+import javax.sql.DataSource;
 
 @SpringBootApplication
 public class Job4jCarAccidentApplication extends SpringBootServletInitializer {
 
-	@Bean(destroyMethod = "close")
-	public SessionFactory sf() {
-		final StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
-				.configure().build();
-		return new MetadataSources(registry).buildMetadata().buildSessionFactory();
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+		return application.sources(Job4jCarAccidentApplication.class);
+	}
+
+	@Bean
+	public SpringLiquibase liquibase(DataSource ds) {
+		SpringLiquibase springLiquibase = new SpringLiquibase();
+		springLiquibase.setChangeLog("classpath:liquibase-changeLog.xml");
+		springLiquibase.setDataSource(ds);
+		return springLiquibase;
 	}
 
 	public static void main(String[] args) {
