@@ -1,9 +1,9 @@
-package ru.job4j.accident.service;
+package ru.job4j.accident.service.old;
 
 import ru.job4j.accident.model.Accident;
 import ru.job4j.accident.model.AccidentType;
 import ru.job4j.accident.model.Rule;
-import ru.job4j.accident.repository.AccidentHibernate;
+import ru.job4j.accident.repository.old.AccidentHibernate;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

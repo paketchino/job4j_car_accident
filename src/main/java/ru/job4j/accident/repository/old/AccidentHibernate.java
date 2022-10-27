@@ -1,4 +1,4 @@
-package ru.job4j.accident.repository;
+package ru.job4j.accident.repository.old;
 
 import ru.job4j.accident.model.Accident;
 import ru.job4j.accident.model.AccidentType;

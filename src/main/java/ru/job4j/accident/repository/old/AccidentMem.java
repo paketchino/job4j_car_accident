@@ -1,7 +1,6 @@
-package ru.job4j.accident.repository;
+package ru.job4j.accident.repository.old;
 
 import ru.job4j.accident.model.Accident;
-import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;

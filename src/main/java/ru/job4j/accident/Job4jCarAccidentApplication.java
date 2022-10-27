@@ -22,12 +22,6 @@ public class Job4jCarAccidentApplication extends SpringBootServletInitializer {
 		return application.sources(Job4jCarAccidentApplication.class);
 	}
 
-	@Bean(name = "entityManagerFactory")
-	public LocalSessionFactoryBean sessionFactory() {
-		LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
-		return sessionFactory;
-	}
-
 	@Bean
 	public SpringLiquibase liquibase(DataSource ds) {
 		SpringLiquibase springLiquibase = new SpringLiquibase();
