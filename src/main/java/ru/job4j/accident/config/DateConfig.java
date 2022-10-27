@@ -13,29 +13,29 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
-@Configuration
-@EnableJpaRepositories("ru.job4j.accident")
-@EnableTransactionManagement
-public class DateConfig {
-
-    @Primary
-    @Bean
-    public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource ds) {
-        HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-        vendorAdapter.setGenerateDdl(true);
-        LocalContainerEntityManagerFactoryBean factory
-                = new LocalContainerEntityManagerFactoryBean();
-        factory.setJpaVendorAdapter(vendorAdapter);
-        factory.setPackagesToScan("ru.job4j.accident");
-        factory.setDataSource(ds);
-        return factory;
-    }
-
-    @Bean
-    public PlatformTransactionManager
-    transactionManager(EntityManagerFactory entityManagerFactory) {
-        JpaTransactionManager txManager = new JpaTransactionManager();
-        txManager.setEntityManagerFactory(entityManagerFactory);
-        return txManager;
-    }
-}
+//@Configuration
+//@EnableJpaRepositories("ru.job4j.accident")
+//@EnableTransactionManagement
+//public class DateConfig {
+//
+//    @Primary
+//    @Bean
+//    public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource ds) {
+//        HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
+//        vendorAdapter.setGenerateDdl(true);
+//        LocalContainerEntityManagerFactoryBean factory
+//                = new LocalContainerEntityManagerFactoryBean();
+//        factory.setJpaVendorAdapter(vendorAdapter);
+//        factory.setPackagesToScan("ru.job4j.accident");
+//        factory.setDataSource(ds);
+//        return factory;
+//    }
+//
+//    @Bean
+//    public PlatformTransactionManager
+//    transactionManager(EntityManagerFactory entityManagerFactory) {
+//        JpaTransactionManager txManager = new JpaTransactionManager();
+//        txManager.setEntityManagerFactory(entityManagerFactory);
+//        return txManager;
+//    }
+//}

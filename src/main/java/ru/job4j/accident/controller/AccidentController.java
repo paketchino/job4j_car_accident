@@ -1,5 +1,6 @@
 package ru.job4j.accident.controller;
 
+import lombok.AllArgsConstructor;
 import ru.job4j.accident.model.Accident;
 import ru.job4j.accident.model.Authority;
 import ru.job4j.accident.model.Rule;
@@ -22,18 +23,11 @@ import java.util.List;
 import java.util.Set;
 
 @Controller
+@AllArgsConstructor
 public class AccidentController {
     private final AccidentServiceData accidentService;
     private final AccidentTypeRepository accidentTypeRepository;
     private final AuthorityRepository authorityRepository;
-
-    public AccidentController(AccidentServiceData accidentService,
-                              AccidentTypeRepository accidentTypeRepository,
-                              AuthorityRepository authorityRepository) {
-        this.accidentService = accidentService;
-        this.accidentTypeRepository = accidentTypeRepository;
-        this.authorityRepository = authorityRepository;
-    }
 
     @GetMapping("/createAccident")
     public String addAccident(Model model) {

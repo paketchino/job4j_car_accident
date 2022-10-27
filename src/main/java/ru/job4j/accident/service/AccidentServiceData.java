@@ -1,5 +1,7 @@
 package ru.job4j.accident.service;
 
+import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import ru.job4j.accident.model.Accident;
 import ru.job4j.accident.model.Rule;
 import ru.job4j.accident.repository.AccidentRepository;
@@ -11,16 +13,14 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@AllArgsConstructor
 public class AccidentServiceData {
 
+    @Autowired
     private final AccidentRepository accidentRepository;
-    private final RuleRepository ruleRepository;
 
-    public AccidentServiceData(AccidentRepository accidentRepository,
-                               RuleRepository ruleRepository) {
-        this.accidentRepository = accidentRepository;
-        this.ruleRepository = ruleRepository;
-    }
+    @Autowired
+    private final RuleRepository ruleRepository;
 
     public void create(Accident accident) {
         accidentRepository.save(accident);

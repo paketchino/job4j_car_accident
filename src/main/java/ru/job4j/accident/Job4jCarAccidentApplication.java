@@ -10,6 +10,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
+import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
+
 import javax.sql.DataSource;
 
 @SpringBootApplication
@@ -18,6 +20,12 @@ public class Job4jCarAccidentApplication extends SpringBootServletInitializer {
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		return application.sources(Job4jCarAccidentApplication.class);
+	}
+
+	@Bean(name = "entityManagerFactory")
+	public LocalSessionFactoryBean sessionFactory() {
+		LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
+		return sessionFactory;
 	}
 
 	@Bean
