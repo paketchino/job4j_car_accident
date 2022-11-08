@@ -12,9 +12,5 @@ public interface AuthorityRepository extends CrudRepository<Authority, Integer> 
 
     Authority findByAuthority(String authority);
 
-    void create(Authority authority);
-
-    List<Authority> getAll();
-
     Optional<Authority> findById(int id);
 }

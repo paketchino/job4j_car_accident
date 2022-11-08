@@ -1,5 +1,6 @@
 package ru.job4j.accident.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.job4j.accident.model.AccidentType;
 import ru.job4j.accident.repository.AccidentTypeRepository;
@@ -9,7 +10,7 @@ import java.util.Optional;
 
 @Service
 public class AccidentTypeServiceData {
-
+    @Autowired
     private final AccidentTypeRepository accidentTypeRepository;
 
     public AccidentTypeServiceData(AccidentTypeRepository accidentTypeRepository) {

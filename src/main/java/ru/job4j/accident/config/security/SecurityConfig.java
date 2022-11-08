@@ -1,4 +1,4 @@
-package ru.job4j.accident.security;
+package ru.job4j.accident.config.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -16,8 +16,6 @@ import javax.sql.DataSource;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    private PasswordEncoder pe;
     @Autowired
     private DataSource ds;
 

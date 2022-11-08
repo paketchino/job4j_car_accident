@@ -9,9 +9,5 @@ import java.util.Optional;
 @Repository
 public interface RuleRepository extends CrudRepository<Rule, Integer> {
 
-    void create(Rule rule);
-
     Optional<Rule> findById(int id);
-
-    boolean updateRule(Rule rule);
 }

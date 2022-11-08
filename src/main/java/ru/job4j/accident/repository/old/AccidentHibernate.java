@@ -39,10 +39,10 @@ public class AccidentHibernate {
 
     public boolean update(Accident accident) {
         return DefaultMethod.tx(session ->
-                session.createQuery("update Accident a set a.desc=:aDesc, "
+                session.createQuery("update Accident a set a.description=:aDesc, "
                                 + "a.address =:aAddress, a.numberCar=:aNumber,"
                                 + "a.photo =:aPhoto where a.id =:aId")
-                        .setParameter("aDesc", accident.getDesc())
+                        .setParameter("aDesc", accident.getDescription())
                         .setParameter("aAddress", accident.getAddress())
                         .setParameter("aNumber", accident.getNumberCar())
                         .setParameter("aPhoto", accident.getPhoto())

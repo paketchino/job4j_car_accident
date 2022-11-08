@@ -19,13 +19,16 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Column(name = "username")
     private String username;
 
+    @Column(name = "password")
     private String password;
 
     @ManyToOne
     @JoinColumn(name = "authority_id")
     private Authority authority;
 
+    @Column(name = "enabled")
     private boolean enabled;
 }

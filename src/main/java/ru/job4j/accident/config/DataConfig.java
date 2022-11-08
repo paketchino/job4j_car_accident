@@ -16,7 +16,7 @@ import javax.sql.DataSource;
 @Configuration
 @EnableJpaRepositories("ru.job4j.accident")
 @EnableTransactionManagement
-public class DateConfig {
+public class DataConfig {
 
     @Primary
     @Bean

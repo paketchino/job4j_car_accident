@@ -19,23 +19,8 @@ public class AccidentServiceData {
     @Autowired
     private final AccidentRepository accidentRepository;
 
-    @Autowired
-    private final RuleRepository ruleRepository;
-
     public void create(Accident accident) {
         accidentRepository.save(accident);
-    }
-
-    public void create(Rule rule) {
-        ruleRepository.create(rule);
-    }
-
-    public Optional<Rule> findByIdRule(int id) {
-        return ruleRepository.findById(id);
-    }
-
-    public boolean update(Rule rule) {
-        return ruleRepository.updateRule(rule);
     }
 
     public List<Accident> getAll() {

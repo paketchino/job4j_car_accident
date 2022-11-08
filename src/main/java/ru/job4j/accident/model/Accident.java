@@ -22,11 +22,11 @@ public class Accident {
 
     private String name;
 
-    @OneToMany
-    private Set<Rule> rules;
+    @ManyToOne
+    private Rule rule;
 
     @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
-    @JoinTable(name = "accidents_accidentTypes", joinColumns = {
+    @JoinTable(name = "accidents_accident_types", joinColumns = {
             @JoinColumn(name = "accident_id", nullable = false, updatable = false)},
     inverseJoinColumns = {
             @JoinColumn(name = "accidentType_id", nullable = false, updatable = false)})
@@ -36,7 +36,7 @@ public class Accident {
 
     private int numberCar;
 
-    private String desc;
+    private String description;
 
     private byte[] photo;
 

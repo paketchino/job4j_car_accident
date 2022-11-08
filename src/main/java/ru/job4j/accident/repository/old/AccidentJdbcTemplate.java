@@ -13,17 +13,17 @@ public class AccidentJdbcTemplate {
 
     public Accident save(Accident accident) {
         jdbc.update("insert into accidents (name, "
-                        + "rules_id, "
+                        + "rule_id, "
                         + "accidentType_id, " + "address, "
                         + "numberCar, " + "desc, " + "photo, "
                         + "status) "
                         + "values (?, ?, ?, ?, ?, ?, ?)",
                 accident.getName());
-        accident.getRules();
+        accident.getRule();
         accident.getAccidentType();
         accident.getAddress();
         accident.getNumberCar();
-        accident.getDesc();
+        accident.getDescription();
         accident.getPhoto();
         accident.isStatus();
         return accident;

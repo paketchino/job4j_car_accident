@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import ru.job4j.accident.service.RuleServiceData;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
@@ -28,6 +29,7 @@ public class AccidentController {
     private final AccidentServiceData accidentService;
     private final AccidentTypeRepository accidentTypeRepository;
     private final AuthorityRepository authorityRepository;
+    private final RuleServiceData ruleServiceData;
 
     @GetMapping("/createAccident")
     public String addAccident(Model model) {
@@ -40,7 +42,7 @@ public class AccidentController {
         types.add(new AccidentType(3, "Машина и велосипед"));
         model.addAttribute("types", types);
         model.addAttribute("rules", rules);
-        return "/createAccident";
+        return "createAccident";
     }
 
    @PostMapping("/saveAccident")
@@ -55,7 +57,7 @@ public class AccidentController {
 
     @GetMapping("/formUpdateAccident")
     public String updateAccident() {
-        return "/formUpdateAccident";
+        return "formUpdateAccident";
     }
 
     @PostMapping("/changeAccident")
@@ -71,6 +73,17 @@ public class AccidentController {
         return "redirect:/accident";
     }
 
+    @GetMapping("/addRule")
+    public String addRule() {
+        return "addRule";
+    }
+
+    @PostMapping("/createRule")
+    public String createRule(@ModelAttribute Rule rule) {
+        ruleServiceData.save(rule);
+        return "redirect:/index";
+    }
+
     @GetMapping("/createAccidentType")
     public String createAccidentType() {
         return "createAccidentType";
@@ -79,28 +92,6 @@ public class AccidentController {
     @PostMapping("/saveAccidentType")
     public String saveAccidentType(@ModelAttribute AccidentType accidentType) {
         accidentTypeRepository.save(accidentType);
-        return "redirect:/index";
-    }
-
-    @GetMapping("/addRule")
-    public String addRule() {
-        return "addRule";
-    }
-
-    @PostMapping("/createRule")
-    public String createRule(@ModelAttribute Rule rule) {
-        accidentService.create(rule);
-        return "redirect:/index";
-    }
-
-    @GetMapping("/updateRule")
-    public String updateRule() {
-        return "updateRule";
-    }
-
-    @PostMapping("/changeRule")
-    public String changeRule(@ModelAttribute Rule rule) {
-        accidentService.update(rule);
         return "redirect:/index";
     }
 
