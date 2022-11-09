@@ -1,5 +1,5 @@
 package ru.job4j.accident.service.old;
-
+/*
 import ru.job4j.accident.model.Accident;
 import ru.job4j.accident.repository.old.AccidentJdbcTemplate;
 import lombok.AllArgsConstructor;
@@ -29,3 +29,4 @@ public class AccidentServiceJDBC {
         return accidentsRepostiory.update(accident);
     }
 }
+ */

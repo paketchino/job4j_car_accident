@@ -1,5 +1,5 @@
 package ru.job4j.accident.service.old;
-
+/*
 import ru.job4j.accident.model.Accident;
 import ru.job4j.accident.model.AccidentType;
 import ru.job4j.accident.model.Rule;
@@ -58,3 +58,4 @@ public class AccidentServiceHibernate {
         return accidentHibernate.findByIdRule(id);
     }
 }
+ */

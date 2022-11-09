@@ -1,5 +1,5 @@
 package ru.job4j.accident.service.old;
-
+/*
 import ru.job4j.accident.model.Accident;
 import ru.job4j.accident.repository.old.AccidentMem;
 import org.springframework.stereotype.Service;
@@ -30,3 +30,4 @@ public class AccidentServiceMem {
         accidentMem.update(accident);
     }
 }
+ */

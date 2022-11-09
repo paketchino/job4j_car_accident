@@ -93,9 +93,9 @@ public class AccidentControllerTest {
                 .param("id", "1")
                 .param("name", "Статья 1"))
                 .andDo(print())
-                .andExpect(status().is2xxSuccessful());
+                .andExpect(status().is3xxRedirection());
         ArgumentCaptor<Rule> argument = ArgumentCaptor.forClass(Rule.class);
-        verify(accidentController.createRule(argument.capture()));
+        verify(accidentController).createRule(argument.capture());
         Assert.assertEquals(argument.capture().getName(), "Статья 1");
     }
 
@@ -108,7 +108,7 @@ public class AccidentControllerTest {
                 .andDo(print())
                 .andExpect(status().is3xxRedirection());
         ArgumentCaptor<AccidentType> argument = ArgumentCaptor.forClass(AccidentType.class);
-        verify(accidentController.saveAccidentType(argument.capture()));
+        verify(accidentController).saveAccidentType(argument.capture());
         Assert.assertEquals(argument.capture().getName(), "Авария");
     }
 
@@ -121,7 +121,7 @@ public class AccidentControllerTest {
                 .andDo(print())
                 .andExpect(status().is3xxRedirection());
         ArgumentCaptor<Authority> argument = ArgumentCaptor.forClass(Authority.class);
-        verify(accidentController.saveAuthority(argument.capture()));
+        verify(accidentController).saveAuthority(argument.capture());
         Assert.assertEquals(argument.capture().getAuthority(), "Админ");
     }
 }

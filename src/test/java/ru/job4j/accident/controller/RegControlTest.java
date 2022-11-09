@@ -49,7 +49,7 @@ public class RegControlTest {
                 .andDo(print())
                 .andExpect(status().is3xxRedirection());
         ArgumentCaptor<User> argument = ArgumentCaptor.forClass(User.class);
-        verify(regControl.regSave(argument.capture()));
+        verify(regControl).regSave(argument.capture());
         Assert.assertEquals(argument.getValue().getUsername(), "user");
         Assert.assertEquals(argument.getValue().getPassword(), "password");
     }
