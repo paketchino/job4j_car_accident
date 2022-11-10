@@ -106,7 +106,8 @@
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
-			<scope>2.1.214</scope>
+			<scope>test</scope>
+			<version>2.1.214</version>
 		</dependency>
 		<dependency>
 			<groupId>org.liquibase</groupId>
@@ -132,7 +133,8 @@
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
-			<scope>42.4.2</scope>
+			<scope>runtime</scope>
+			<version>42.4.2</version>
 		</dependency>
 
 		<!--Test-->
