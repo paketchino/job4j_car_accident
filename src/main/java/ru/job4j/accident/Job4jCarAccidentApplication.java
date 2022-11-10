@@ -19,10 +19,10 @@ public class Job4jCarAccidentApplication extends SpringBootServletInitializer {
 
 	@Bean
 	public SpringLiquibase liquibase(DataSource ds) {
-		SpringLiquibase springLiquibase = new SpringLiquibase();
-		springLiquibase.setChangeLog("db/changelog/liquibase-changeLog.xml");
-		springLiquibase.setDataSource(ds);
-		return springLiquibase;
+		SpringLiquibase liquibase = new SpringLiquibase();
+		liquibase.setChangeLog("db/liquibase-changeLog.xml");
+		liquibase.setDataSource(ds);
+		return liquibase;
 	}
 
 	public static void main(String[] args) {

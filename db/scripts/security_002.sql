@@ -1,13 +1,13 @@
 CREATE TABLE IF NOT EXISTS authorities (
                              id serial primary key,
-                             authority text NOT NULL unique
+                             authority text unique
 );
 CREATE TABLE IF NOT EXISTS users (
                        id serial primary key,
                        username text NOT NULL,
                        password text NOT NULL,
                        enabled boolean default true,
-                       authority_id int not null references authorities(id)
+                       authority_id int references authorities(id)
 );
 
 insert into users (username, enabled, password, authority_id)

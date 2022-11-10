@@ -1,4 +1,4 @@
-package ru.job4j.accident.controller;
+package ru.job4j.accident.model.controller;
 
 import lombok.AllArgsConstructor;
 import ru.job4j.accident.model.Accident;

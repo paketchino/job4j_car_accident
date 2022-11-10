@@ -25,6 +25,7 @@ import ru.job4j.accident.model.Accident;
 import ru.job4j.accident.model.AccidentType;
 import ru.job4j.accident.model.Authority;
 import ru.job4j.accident.model.Rule;
+import ru.job4j.accident.model.controller.AccidentController;
 import ru.job4j.accident.service.AccidentTypeServiceData;
 import ru.job4j.accident.service.RuleServiceData;
 
@@ -95,7 +96,7 @@ public class AccidentControllerTest {
                 .andDo(print())
                 .andExpect(status().is3xxRedirection());
         ArgumentCaptor<Rule> argument = ArgumentCaptor.forClass(Rule.class);
-        verify(accidentController).createRule(argument.capture());
+        verify(ruleServiceData).save(argument.capture());
         Assert.assertEquals(argument.capture().getName(), "Статья 1");
     }
 

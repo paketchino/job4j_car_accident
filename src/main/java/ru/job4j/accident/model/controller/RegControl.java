@@ -1,4 +1,4 @@
-package ru.job4j.accident.controller;
+package ru.job4j.accident.model.controller;
 
 import ru.job4j.accident.model.User;
 import ru.job4j.accident.repository.AuthorityRepository;

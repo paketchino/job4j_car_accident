@@ -1,4 +1,4 @@
-package ru.job4j.accident.controller;
+package ru.job4j.accident.model.controller;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
