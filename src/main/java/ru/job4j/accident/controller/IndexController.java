@@ -1,4 +1,4 @@
-package ru.job4j.accident.model.controller;
+package ru.job4j.accident.controller;
 
 import ru.job4j.accident.model.Accident;
 import ru.job4j.accident.service.AccidentServiceData;

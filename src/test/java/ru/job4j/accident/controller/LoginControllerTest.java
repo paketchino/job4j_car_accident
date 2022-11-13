@@ -7,13 +7,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import ru.job4j.accident.Job4jCarAccidentApplication;
-import ru.job4j.accident.model.controller.LoginController;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @SpringBootTest(classes = Job4jCarAccidentApplication.class)
 @AutoConfigureMockMvc
@@ -28,11 +28,22 @@ public class LoginControllerTest {
     @Test
     @WithMockUser
     public void loginPage() throws Exception {
-        this.mockMvc.perform(get("/login")
-                .param("error", "error")
-                .param("logout", "logout"))
+        this.mockMvc.perform(get("/login?error=true"))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(view().name("login"));
+                .andExpect(view().name("login"))
+                .andExpect(model().attribute("errorMessage",
+                        "Username or Password is incorrect !!"));
+    }
+
+    @Test
+    @WithMockUser
+    public void logoutPage() throws Exception {
+        this.mockMvc.perform(get("/login?logout=true"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(view().name("login"))
+                .andExpect(model().attribute("errorMessage",
+                        "You have been successfully logged out !!"));
     }
 }

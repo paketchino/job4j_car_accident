@@ -1,5 +1,5 @@
-<!doctype html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="en">
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,30 +15,31 @@
 </head>
 <body>
 <div class="container">
+    <h4><span th:text="${message}"></span></h4>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" th:href="@{/index}"><p class="text-uppercase">Автомобильные инциденты</p> </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-item nav-link active" th:href="@{/createAccident}"> Новый инцидент <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" th:href="@{/index}">Главная</a>
             </div>
         </div>
     </nav>
     <div class="row pt-3">
         <div class="card" style="width: 100%">
             <div class="card-header">
-                Редактирование статьи
+                <h1 class="h3 mb-3 fw-normal">Регистрация</h1>
             </div>
             <div class="card-body">
-                <form th:action="@{/changeRule}" method="POST" th:object="${rule}">
-                    <input type="hidden" name="id" th:field="*{id}"/>
-                    <div class="form-group">
-                        <label for="name">Новое название статьи</label>
-                        <input type="text" class="form-control" name="name" id="name" th:field="*{name}">
+                <form th:action="@{/reg}" method="POST">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="username" name="username" required>
+                        <label for="username">User name</label>
                     </div>
-                    <button type="submit" class="btn btn-primary">Сохранить</button>
+                    <div class="form-floating">
+                        <input type="password" class="form-control" id="password" name="password" required>
+                        <label for="password">Password</label>
+                    </div>
+                    <hr class="my-4">
+                    <button type="submit" class="w-100 btn btn-lg btn-primary">Регистрация</button>
                 </form>
             </div>
         </div>

@@ -1,6 +1,7 @@
-package ru.job4j.accident.model.controller;
+package ru.job4j.accident.controller;
 
 import lombok.AllArgsConstructor;
+import org.springframework.web.bind.annotation.*;
 import ru.job4j.accident.model.Accident;
 import ru.job4j.accident.model.Authority;
 import ru.job4j.accident.model.Rule;
@@ -10,39 +11,27 @@ import ru.job4j.accident.repository.AuthorityRepository;
 import ru.job4j.accident.service.AccidentServiceData;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import ru.job4j.accident.service.AccidentTypeServiceData;
 import ru.job4j.accident.service.RuleServiceData;
-
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 @Controller
 @AllArgsConstructor
+@RequestMapping("/accidents")
 public class AccidentController {
     private final AccidentServiceData accidentService;
-    private final AccidentTypeRepository accidentTypeRepository;
     private final AuthorityRepository authorityRepository;
+
     private final RuleServiceData ruleServiceData;
+
+    private final AccidentTypeServiceData accidentTypeServiceData;
 
     @GetMapping("/createAccident")
     public String addAccident(Model model) {
-        Set<Rule> rules = new HashSet<>();
-        rules.add(new Rule(1, "Статья 1"));
-        rules.add(new Rule(2, "Статья 2"));
-        List<AccidentType> types = new ArrayList<>();
-        types.add(new AccidentType(1, "Две машины"));
-        types.add(new AccidentType(2, "Машина и человек"));
-        types.add(new AccidentType(3, "Машина и велосипед"));
-        model.addAttribute("types", types);
-        model.addAttribute("rules", rules);
-        return "createAccident";
+        model.addAttribute("types", accidentTypeServiceData.getAll());
+        model.addAttribute("rules", ruleServiceData);
+        return "accident/createAccident";
     }
 
    @PostMapping("/saveAccident")
@@ -56,8 +45,9 @@ public class AccidentController {
     }
 
     @GetMapping("/formUpdateAccident")
-    public String updateAccident() {
-        return "formUpdateAccident";
+    public String updateAccident(@RequestParam("id") int id, Model model) {
+        model.addAttribute("accident", accidentService.findByIdAccident(id));
+        return "accident/formUpdateAccident";
     }
 
     @PostMapping("/changeAccident")
@@ -71,28 +61,6 @@ public class AccidentController {
         String[] ids = req.getParameterValues("rIds");
         model.addAttribute("accident", accidentService.findByIdAccident(id));
         return "redirect:/accident";
-    }
-
-    @GetMapping("/addRule")
-    public String addRule() {
-        return "addRule";
-    }
-
-    @PostMapping("/createRule")
-    public String createRule(@ModelAttribute Rule rule) {
-        ruleServiceData.save(rule);
-        return "redirect:/index";
-    }
-
-    @GetMapping("/createAccidentType")
-    public String createAccidentType() {
-        return "createAccidentType";
-    }
-
-    @PostMapping("/saveAccidentType")
-    public String saveAccidentType(@ModelAttribute AccidentType accidentType) {
-        accidentTypeRepository.save(accidentType);
-        return "redirect:/index";
     }
 
     @GetMapping("/createAuthority")

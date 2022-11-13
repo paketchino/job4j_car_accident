@@ -12,34 +12,37 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <title>Автомобильные инциденты</title>
+</head>
 <body>
 <div class="container">
+    <h4><span th:text="${message}"></span></h4>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" th:href="@{/index}"><p class="text-uppercase">Автомобильные инциденты</p> </a>
-        <a class="navbar-brand" th:href="@{/reg}"><p class="text-uppercase">Регистрация</p> </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" th:href="@{/index}">Главная</a>
+            </div>
+        </div>
     </nav>
-    <div class="container py-3">
-        <main class="form-signin">
-            <h1 class="h3 mb-3 fw-normal">Регистрация</h1>
-        <form name='login' action="<c:url value='/reg'/>" method='POST'>
-            <table>
-        <tr>
-            <td>UserName:</td>
-            <td><input type='text' name='username'></td>
-        </tr>
-        <tr>
-            <td>Password:</td>
-            <td><input type='password' name='password'/></td>
-        </tr>
-        <tr>
-            <button type="submit" class="w-100 btn btn-lg btn-primary">Регистрация</button>
-        </tr>
-                </table>
-            </form>
-        </main>
+    <div class="row pt-3">
+        <div class="card" style="width: 100%">
+            <div class="card-header">
+                <h1 class="h3 mb-3 fw-normal">Регистрация</h1>
+            </div>
+            <div class="card-body">
+                <form th:action="@{/reg}" method="POST">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="username" name="username" required>
+                        <label for="username">User name</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="password" class="form-control" id="password" name="password" required>
+                        <label for="password">Password</label>
+                    </div>
+                    <hr class="my-4">
+                    <button type="submit" class="w-100 btn btn-lg btn-primary">Регистрация</button>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
 </body>

@@ -15,7 +15,6 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>job4j_car_accident</name>
 	<description>job4j_car_accident</description>
-
 	<properties>
 		<java.version>17</java.version>
 	</properties>
@@ -112,7 +111,7 @@
 		<dependency>
 			<groupId>org.liquibase</groupId>
 			<artifactId>liquibase-core</artifactId>
-			<version>4.15.0</version>
+			<version>4.17.2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
@@ -182,7 +181,8 @@
 			<plugin>
 				<groupId>org.liquibase</groupId>
 				<artifactId>liquibase-maven-plugin</artifactId>
-				<version>4.15.0</version>
+				<version>4.17.2</version>
+				<changelog-file>db/liquibase-changeLog.xml</changelog-file>
 				<configuration>
 					<propertyFile>db/liquibase.properties</propertyFile>
 				</configuration>
