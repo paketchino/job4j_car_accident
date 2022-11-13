@@ -29,6 +29,7 @@ public class DataConfig {
         factory.setPackagesToScan("ru.job4j.accident");
         factory.setDataSource(ds);
         return factory;
+
     }
 
     @Bean
