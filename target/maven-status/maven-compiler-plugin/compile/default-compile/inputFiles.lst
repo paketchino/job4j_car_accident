@@ -1,5 +1,4 @@
 C:\Users\rompe\IdeaProjects\job4j_car_accident\src\main\java\ru\job4j\accident\service\AccidentServiceData.java
-C:\Users\rompe\IdeaProjects\job4j_car_accident\src\main\java\ru\job4j\accident\model\controller\LoginController.java
 C:\Users\rompe\IdeaProjects\job4j_car_accident\src\main\java\ru\job4j\accident\service\old\AccidentServiceHibernate.java
 C:\Users\rompe\IdeaProjects\job4j_car_accident\src\main\java\ru\job4j\accident\repository\old\AccidentHibernate.java
 C:\Users\rompe\IdeaProjects\job4j_car_accident\src\main\java\ru\job4j\accident\model\AccidentType.java
@@ -13,14 +12,16 @@ C:\Users\rompe\IdeaProjects\job4j_car_accident\src\main\java\ru\job4j\accident\m
 C:\Users\rompe\IdeaProjects\job4j_car_accident\src\main\java\ru\job4j\accident\util\DefaultMethod.java
 C:\Users\rompe\IdeaProjects\job4j_car_accident\src\main\java\ru\job4j\accident\repository\RuleRepository.java
 C:\Users\rompe\IdeaProjects\job4j_car_accident\src\main\java\ru\job4j\accident\service\old\AccidentServiceJDBC.java
-C:\Users\rompe\IdeaProjects\job4j_car_accident\src\main\java\ru\job4j\accident\model\controller\RegControl.java
+C:\Users\rompe\IdeaProjects\job4j_car_accident\src\main\java\ru\job4j\accident\controller\RegControl.java
 C:\Users\rompe\IdeaProjects\job4j_car_accident\src\main\java\ru\job4j\accident\service\AccidentTypeServiceData.java
 C:\Users\rompe\IdeaProjects\job4j_car_accident\src\main\java\ru\job4j\accident\model\Supervisor.java
 C:\Users\rompe\IdeaProjects\job4j_car_accident\src\main\java\ru\job4j\accident\Job4jCarAccidentApplication.java
 C:\Users\rompe\IdeaProjects\job4j_car_accident\src\main\java\ru\job4j\accident\repository\UserRepository.java
 C:\Users\rompe\IdeaProjects\job4j_car_accident\src\main\java\ru\job4j\accident\config\DataConfig.java
-C:\Users\rompe\IdeaProjects\job4j_car_accident\src\main\java\ru\job4j\accident\model\controller\AccidentController.java
+C:\Users\rompe\IdeaProjects\job4j_car_accident\src\main\java\ru\job4j\accident\controller\AccidentTypeController.java
+C:\Users\rompe\IdeaProjects\job4j_car_accident\src\main\java\ru\job4j\accident\controller\RuleController.java
 C:\Users\rompe\IdeaProjects\job4j_car_accident\src\main\java\ru\job4j\accident\repository\AccidentRepository.java
+C:\Users\rompe\IdeaProjects\job4j_car_accident\src\main\java\ru\job4j\accident\controller\AccidentController.java
 C:\Users\rompe\IdeaProjects\job4j_car_accident\src\main\java\ru\job4j\accident\model\Rule.java
 C:\Users\rompe\IdeaProjects\job4j_car_accident\src\main\java\ru\job4j\accident\service\old\AccidentServiceMem.java
 C:\Users\rompe\IdeaProjects\job4j_car_accident\src\main\java\ru\job4j\accident\model\User.java
@@ -30,4 +31,5 @@ C:\Users\rompe\IdeaProjects\job4j_car_accident\src\main\java\ru\job4j\accident\c
 C:\Users\rompe\IdeaProjects\job4j_car_accident\src\main\java\ru\job4j\accident\config\security\SecurityConfig.java
 C:\Users\rompe\IdeaProjects\job4j_car_accident\src\main\java\ru\job4j\accident\model\Accident.java
 C:\Users\rompe\IdeaProjects\job4j_car_accident\src\main\java\ru\job4j\accident\config\security\SecurityUnit.java
-C:\Users\rompe\IdeaProjects\job4j_car_accident\src\main\java\ru\job4j\accident\model\controller\IndexController.java
+C:\Users\rompe\IdeaProjects\job4j_car_accident\src\main\java\ru\job4j\accident\controller\LoginController.java
+C:\Users\rompe\IdeaProjects\job4j_car_accident\src\main\java\ru\job4j\accident\controller\IndexController.java

@@ -182,7 +182,6 @@
 				<groupId>org.liquibase</groupId>
 				<artifactId>liquibase-maven-plugin</artifactId>
 				<version>4.17.2</version>
-				<changelog-file>db/liquibase-changeLog.xml</changelog-file>
 				<configuration>
 					<propertyFile>db/liquibase.properties</propertyFile>
 				</configuration>

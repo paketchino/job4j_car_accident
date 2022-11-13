@@ -1,15 +1,12 @@
 -------------------------------------------------------------------------------
 Test set: ru.job4j.accident.controller.LoginControllerTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.281 s <<< FAILURE! - in ru.job4j.accident.controller.LoginControllerTest
-loginPage  Time elapsed: 0.001 s  <<< ERROR!
-java.lang.IllegalStateException: Failed to load ApplicationContext
-Caused by: org.springframework.beans.factory.BeanCreationException: 
-Error creating bean with name 'liquibase' defined in ru.job4j.accident.Job4jCarAccidentApplication: Invocation of init method failed; nested exception is liquibase.exception.ChangeLogParseException: The file db/liquibase-changeLog.xml was not found in the configured search path:
-    - Spring resources
-More locations can be added with the 'searchPath' parameter.
-Caused by: liquibase.exception.ChangeLogParseException: 
-The file db/liquibase-changeLog.xml was not found in the configured search path:
-    - Spring resources
-More locations can be added with the 'searchPath' parameter.
+Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.913 s <<< FAILURE! - in ru.job4j.accident.controller.LoginControllerTest
+loginPage  Time elapsed: 0.043 s  <<< FAILURE!
+java.lang.AssertionError: Model attribute 'errorMessage' expected:<Username or Password is incorrect !!> but was:<null>
+	at ru.job4j.accident.controller.LoginControllerTest.loginPage(LoginControllerTest.java:37)
+
+logoutPage  Time elapsed: 0.019 s  <<< FAILURE!
+java.lang.AssertionError: Model attribute 'errorMessage' expected:<You have been successfully logged out !!> but was:<null>
+	at ru.job4j.accident.controller.LoginControllerTest.logoutPage(LoginControllerTest.java:49)
 

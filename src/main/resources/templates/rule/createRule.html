@@ -11,7 +11,7 @@
             integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <title>Автомобильные инцеденты</title>
+    <title>Автомобильные инциденты</title>
 </head>
 <body>
 <div class="container">
@@ -25,22 +25,19 @@
                 <div class="navbar-nav">
                     <a class="nav-item nav-link active" th:href="@{/createAccident}">Добавить Инцидент</a>
                 </div>
-                <div class="navbar-nav">
-                    <a class="nav-item nav-link active" th:href="@{/createAccidentType}">Добавить Тип Инцидента</a>
-                </div>
             </div>
         </div>
     </nav>
     <div class="row pt-3">
         <div class="card" style="width: 100%">
             <div class="card-header">
-                Новая Статья
+                Новая статья
             </div>
             <div class="card-body">
-                <form th:action="@{/createRule}" method="POST" enctype="multipart/form-data">
+                <form th:action="@{/rules/saveRule/}" method="POST">
                     <input type="hidden" name="id" value="0"/>
                     <div class="form-group">
-                        <label for="name">Имя</label>
+                        <label for="name">Название</label>
                         <input type="text" class="form-control" name="name" id="name">
                     </div>
                     <button type="submit" class="btn btn-primary mt-3">Сохранить</button>
